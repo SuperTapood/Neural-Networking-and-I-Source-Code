@@ -1,1 +1,1 @@
-## ** Neural Networking and I ** ##
+## Neural Networking and I ##
