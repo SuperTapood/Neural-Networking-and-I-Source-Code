@@ -21,16 +21,16 @@ targets = tf.placeholder(tf.float32 ,shape=(None, 1))
 
 w = tf.get_variable("weight-1", shape=(num_inputs, hidden_units))
 b = tf.get_variable("bias-1", shape=(hidden_units))
-output = tf.nn.tanh(tf.matmul(inputs, w) + b)
+output = tf.matmul(inputs, w) + b
 
 for i in range(hidden_layers):
 	w = tf.get_variable(f"weight{i}", shape=(hidden_units, hidden_units))
 	b = tf.get_variable(f"bias{i}", shape=(hidden_units))
-	output = tf.nn.tanh(tf.matmul(output, w) + b)
+	output = tf.matmul(output, w) + b
 
 w = tf.get_variable("weight-fin", shape=(hidden_units, num_outputs))
 b = tf.get_variable("bias-fin", shape=(num_outputs))
-output = tf.nn.tanh(tf.matmul(output, w) + b)
+output = tf.matmul(output, w) + b
 
 
 loss = tf.square(output - targets)
